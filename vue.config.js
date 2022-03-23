@@ -40,5 +40,6 @@ module.exports = {
     '@polkadot/*'
   ],
 
-  runtimeCompiler: true
+  runtimeCompiler: true,
+  parallel: false
 };
