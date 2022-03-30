@@ -53,7 +53,7 @@
             value: 'title'
           },
           {
-            text: this.$t('admin.projects.created'),
+            text: this.$t('admin.projects.project.created'),
             value: 'createdAt'
           }
         ],
