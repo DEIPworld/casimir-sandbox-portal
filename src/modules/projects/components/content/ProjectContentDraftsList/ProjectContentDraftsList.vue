@@ -2,6 +2,7 @@
   <vex-block :title="$t('projects.details.drafts')">
     <template #title-append>
       <v-btn
+        v-if="canCreate"
         color="primary"
         small
         text
@@ -10,7 +11,6 @@
         {{ $t('projects.details.create') }}
       </v-btn>
     </template>
-
     <c-project-content-drafts-list
       :project-id="projectId"
       @click-row="handleClickRow"
@@ -23,6 +23,7 @@
 <script>
   import { VexBlock } from '@deip/vuetify-extended';
   import { ProjectContentDraftsList as CProjectContentDraftsList } from '@deip/project-content-module';
+  import { rolesFactory } from '@/mixins';
 
   export default {
     name: 'ProjectContentDraftsList',
@@ -32,10 +33,26 @@
       CProjectContentDraftsList
     },
 
+    mixins: [rolesFactory('teamId')],
+
     props: {
       projectId: {
         type: String,
         required: true
+      }
+    },
+
+    computed: {
+      teamId() {
+        return this.project.teamId;
+      },
+
+      project() {
+        return this.projectId ? this.$store.getters['projects/one'](this.projectId) : {};
+      },
+
+      canCreate() {
+        return this.$$isTeamAdmin;
       }
     },
 
