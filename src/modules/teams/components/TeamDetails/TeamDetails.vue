@@ -41,8 +41,35 @@
 
     <vex-section>
       <ve-stack :gap="24">
-        <span class="text-h6">{{ $t('teams.details.members') }}:</span>
-        <users-list-stack :users="team.members" />
+        <div class="d-flex justify-space-between">
+          <span class="text-h6">{{ $t('teams.details.members') }}:</span>
+          <v-btn
+            v-if="canEdit"
+            text
+            color="primary"
+            mb-4
+            small
+            @click.stop="handleInviteClick"
+          >
+            {{ $t('teams.details.inviteMembers') }}
+          </v-btn>
+        </div>
+
+        <team-add-member-modal
+          v-model="dialog"
+          :team-id="teamId"
+          :team-members="team.members"
+          @success="handleAddMemberSuccess"
+          @error="handleError"
+        />
+
+        <team-member-cards
+          :users="team.members"
+          :team-id="teamId"
+          :can-edit="canEdit"
+          @success="handleRemoveMemberSuccess"
+          @error="handleError"
+        />
       </ve-stack>
     </vex-section>
 
@@ -58,12 +85,15 @@
 </template>
 
 <script>
-  import { TeamDetails as CTeamDetails } from '@deip/teams-module';
   import { VeStack } from '@deip/vue-elements';
   import { VexSection } from '@deip/vuetify-extended';
-  import { UsersListStack } from '@deip/users-module';
   import { rolesFactory } from '@/mixins';
   import { ProjectCardsList } from '@/modules/projects/components/ProjectCardsList';
+  import {
+    TeamDetails as CTeamDetails,
+    TeamAddMemberModal,
+    TeamMemberCards
+  } from '@deip/teams-module';
 
   export default {
     name: 'TeamDetails',
@@ -71,7 +101,8 @@
     components: {
       VeStack,
       VexSection,
-      UsersListStack,
+      TeamMemberCards,
+      TeamAddMemberModal,
       CTeamDetails,
       ProjectCardsList
     },
@@ -88,6 +119,7 @@
     data() {
       return {
         ready: false,
+        dialog: false,
         teamProject: {}
       };
     },
@@ -120,6 +152,18 @@
           }
         }
         this.ready = true;
+      },
+      handleInviteClick() {
+        this.dialog = true;
+      },
+      handleAddMemberSuccess() {
+        this.$notifier.showSuccess(this.$t('teams.cards.successAdd'));
+      },
+      handleRemoveMemberSuccess() {
+        this.$notifier.showSuccess(this.$t('teams.cards.successRemove'));
+      },
+      handleError(error) {
+        this.$notifier.showError(error);
       }
     }
   };
