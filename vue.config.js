@@ -35,6 +35,7 @@ module.exports = {
   },
 
   transpileDependencies: [
+    '@casimir/*',
     '@deip/*',
     'vuetify',
     '@polkadot/*'
