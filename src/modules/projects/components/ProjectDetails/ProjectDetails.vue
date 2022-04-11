@@ -14,6 +14,28 @@
         </v-icon>
         {{ $t('projects.details.edit') }}
       </v-btn>
+
+      <v-btn
+        v-if="!nft"
+        text
+        color="secondary"
+        small
+        class="align-self-center"
+        @click="handleCreateNftClick"
+      >
+        Create NFT
+      </v-btn>
+
+      <v-btn
+        v-else
+        text
+        color="secondary"
+        small
+        class="align-self-center"
+        @click="handleIssueNftClick"
+      >
+        Issue NFT
+      </v-btn>
     </v-toolbar>
 
     <c-project-details
@@ -28,8 +50,10 @@
 
 <script>
   import { ProjectDetails as CProjectDetails } from '@deip/projects-module';
-
+  import { NonFungibleTokenService } from '@casimir/token-service';
   import { rolesFactory } from '@/mixins';
+
+  const nftService = NonFungibleTokenService.getInstance();
 
   export default {
     name: 'ProjectDetails',
@@ -49,7 +73,8 @@
 
     data() {
       return {
-        ready: false
+        ready: false,
+        nft: null
       };
     },
 
@@ -95,6 +120,7 @@
 
     created() {
       this.getProject();
+      this.getNft();
     },
 
     methods: {
@@ -107,6 +133,62 @@
           }
         }
         this.ready = true;
+      },
+
+      async getNft() {
+        try {
+          const projectNfts = await nftService.getClasses({
+            metadata:
+              { projectId: this.projectId }
+          });
+          console.log(projectNfts);
+          [this.nft] = projectNfts.data.items;
+        } catch (error) {
+          console.error(error);
+        }
+      },
+
+      async handleCreateNftClick() {
+        try {
+          const payload = {
+            initiator: this.$currentUser,
+            data: {
+              issuer: this.$currentUser._id,
+              name: this.$attributes.getMappedData(
+                'project.name',
+                this.project?.attributes
+              )?.value,
+              metadata: {
+                projectId: this.projectId
+              }
+            }
+          };
+          const res = await nftService.create(payload);
+          console.log(res);
+        } catch (error) {
+          console.error(error);
+        }
+      },
+
+      async handleIssueNftClick() {
+        try {
+          const payload = {
+            initiator: this.$currentUser,
+            data: {
+              issuer: this.$currentUser._id,
+              classId: this.nft.classId,
+              instanceId: 1,
+              recipient: this.$currentUser._id,
+              metadata: {
+                projectId: this.projectId
+              }
+            }
+          };
+          const res = await nftService.issue(payload);
+          console.log(res);
+        } catch (error) {
+          console.error(error);
+        }
       }
     }
   };

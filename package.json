@@ -14,6 +14,7 @@
   },
   "dependencies": {
     "@casimir/scopes-module": "1.376.0",
+    "@casimir/token-service": "^1.376.0",
     "@deip/access-service": "1.376.0",
     "@deip/assets-module": "1.376.0",
     "@deip/attributes-module": "1.376.0",
