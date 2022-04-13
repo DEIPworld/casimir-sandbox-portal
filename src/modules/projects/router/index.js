@@ -5,12 +5,18 @@ import { VIEW_MODE } from '@deip/constants';
 import { ProjectList } from '@/modules/projects/components/ProjectList';
 import { ProjectForm } from '@/modules/projects/components/ProjectForm';
 import { ProjectDetails } from '@/modules/projects/components/ProjectDetails';
-import { ProjectNftCreate } from '@/modules/projects/components/ProjectNftCreate';
+import { ProjectFtCreate } from '@/modules/projects/components/ProjectFtCreate';
 import { ProjectCrowdfundingCreate } from '@/modules/projects/components/ProjectCrowdfundingCreate';
 import { ProjectCrowdfundingInvest } from '@/modules/projects/components/ProjectCrowdfundingInvest';
-import { ProjectContentDraftForm } from '@/modules/projects/components/content/ProjectContentDraftForm';
-import { ProjectContentDraftDetails } from '@/modules/projects/components/content/ProjectContentDraftDetails';
 import { ProjectContentDetails } from '@/modules/projects/components/content/ProjectContentDetails';
+
+import {
+  ProjectContentDraftForm
+} from '@/modules/projects/components/content/ProjectContentDraftForm';
+
+import {
+  ProjectContentDraftDetails
+} from '@/modules/projects/components/content/ProjectContentDraftDetails';
 
 const formViewMeta = (redirectTo, roles = [SYSTEM_ROLE.TEAM_ADMIN, SYSTEM_ROLE.ADMIN]) => ({
   auth: roles,
@@ -63,9 +69,9 @@ export const projectsRouter = [
         })
       },
       {
-        name: 'projects.nft.create',
-        path: ':projectId/nft/create',
-        component: ProjectNftCreate,
+        name: 'projects.ft.create',
+        path: ':projectId/ft/create',
+        component: ProjectFtCreate,
         meta: formViewMeta('projects.details'),
         props: (route) => ({
           projectId: route.params.projectId
