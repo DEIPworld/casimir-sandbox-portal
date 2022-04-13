@@ -1,7 +1,7 @@
 import { blocksGenerator } from '@deip/vue-layout-schema';
 
 import { crowdfundingBlocks, CrowdfundingWidget } from '@deip/investment-opportunities-module';
-import { ProjectNftWidget } from '@/modules/projects/components/ProjectNftWidget';
+import { ProjectFtWidget } from '@/modules/projects/components/ProjectFtWidget';
 import { ProjectContent } from '@/modules/projects/components/content/ProjectContent';
 
 export const layoutBuilderElements = {
@@ -12,11 +12,11 @@ export const layoutBuilderElements = {
         ...crowdfundingBlocks.blocks,
         ...blocksGenerator([
           {
-            component: ProjectNftWidget,
+            component: ProjectFtWidget,
             data: {
               props: {
-                nfts: '{{projectNftWidget.nfts}}',
-                canUserIssueTokens: '{{projectNftWidget.canUserIssueTokens}}'
+                nfts: '{{ProjectFtWidget.nfts}}', // rename to fts
+                canUserIssueTokens: '{{ProjectFtWidget.canUserIssueTokens}}'
               }
             },
             icon: 'mdi-cash',
@@ -24,7 +24,7 @@ export const layoutBuilderElements = {
             layoutType: 'details',
             scope: ['project'],
             disabledProps: [
-              'nfts',
+              'nfts', // rename to fts
               'canUserIssueTokens'
             ]
           },
@@ -48,7 +48,7 @@ export const layoutBuilderElements = {
     }
   ],
   components: {
-    ProjectNftWidget,
+    ProjectFtWidget,
     CrowdfundingWidget,
     ProjectContent
   }

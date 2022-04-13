@@ -1,9 +1,9 @@
 <template>
   <vex-section v-if="ready" max-width="896" class="mx-auto">
-    <create-non-fungible-token-form
+    <create-fungible-token-form
       :project="project"
       :team="team"
-      :project-alias="$t('projects.nftCreate.project')"
+      :project-alias="$t('projects.ftCreate.project')"
       tos-url=""
       @success="handleSuccess"
       @error="handleError"
@@ -13,15 +13,15 @@
 
 <script>
   import { VexSection } from '@deip/vuetify-extended';
-  import { CreateNonFungibleTokenForm } from '@deip/assets-module';
+  import { CreateFungibleTokenForm } from '@deip/assets-module';
   import { rolesFactory } from '@/mixins';
 
   export default {
-    name: 'ProjectNftCreate',
+    name: 'ProjectFtCreate',
 
     components: {
       VexSection,
-      CreateNonFungibleTokenForm
+      CreateFungibleTokenForm
     },
 
     mixins: [
@@ -89,7 +89,7 @@
       },
 
       handleSuccess() {
-        this.$notifier.showSuccess(this.$t('projects.nftCreate.success'));
+        this.$notifier.showSuccess(this.$t('projects.ftCreate.success'));
         this.$router.push({ name: 'projects.details', params: { projectId: this.projectId } });
       },
 

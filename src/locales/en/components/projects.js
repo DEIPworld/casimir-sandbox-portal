@@ -15,13 +15,13 @@ export default {
     drafts: 'Drafts',
     create: 'Create'
   },
-  nftWidget: {
-    title: 'Non-fungible tokens',
+  ftWidget: {
+    title: 'Fungible tokens',
     issue: 'Issue tokens',
     noTokensMessage: 'No tokens issued',
     noTokensMessageForTeam: 'Please issue tokens to start fundraising'
   },
-  nftCreate: {
+  ftCreate: {
     project: 'project',
     success: 'Tokens successfully issued!'
   },

@@ -1,13 +1,13 @@
 <template>
   <v-card outlined>
     <v-card-title>
-      {{ $t('projects.nftWidget.title') }}
+      {{ $t('projects.ftWidget.title') }}
     </v-card-title>
     <v-card-text>
       <template v-if="!nfts.length">
         <template v-if="canUserIssueTokens">
           <div class="mb-2">
-            {{ $t('projects.nftWidget.noTokensMessageForTeam') }}
+            {{ $t('projects.ftWidget.noTokensMessageForTeam') }}
           </div>
           <v-btn
             color="primary"
@@ -15,13 +15,13 @@
             outlined
             :to="{ name: 'projects.nft.create' }"
           >
-            {{ $t('projects.nftWidget.issue') }}
+            {{ $t('projects.ftWidget.issue') }}
           </v-btn>
         </template>
 
         <template v-else>
           <div class="mb-2">
-            {{ $t('projects.nftWidget.noTokensMessage') }}
+            {{ $t('projects.ftWidget.noTokensMessage') }}
           </div>
         </template>
       </template>
@@ -41,8 +41,9 @@
   import { defineComponent } from '@deip/platform-util';
 
   export default defineComponent({
-    name: 'ProjectNftWidget',
+    name: 'ProjectFtWidget',
     props: {
+      // replace on fts
       nfts: {
         type: Array,
         default: () => []

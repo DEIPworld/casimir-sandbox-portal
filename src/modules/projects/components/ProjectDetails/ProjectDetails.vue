@@ -74,8 +74,8 @@
             startCrowdfundingLink: { name: 'projects.crowdfunding.create' },
             investLink: { name: 'projects.crowdfunding.invest' }
           },
-          projectNftWidget: {
-            nfts: this.project.nfts,
+          ProjectFtWidget: {
+            nfts: this.project.nfts, // rename to fts
             canUserIssueTokens: this.$$isTeamAdmin
           },
           projectContent: {
@@ -85,6 +85,7 @@
       },
 
       canUserStartCrowdfunding() {
+        // rename to fts
         return this.$$isTeamAdmin && this.project.nfts.length > 0;
       },
 
