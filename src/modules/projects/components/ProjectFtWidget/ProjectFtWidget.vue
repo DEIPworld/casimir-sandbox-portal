@@ -13,7 +13,7 @@
             color="primary"
             small
             outlined
-            :to="{ name: 'projects.nft.create' }"
+            :to="{ name: 'projects.ft.create' }"
           >
             {{ $t('projects.ftWidget.issue') }}
           </v-btn>
