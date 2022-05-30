@@ -48,7 +48,7 @@
     data() {
       return {
         ready: false,
-        capAssetsFilter: { type: ASSET_TYPE.COIN }
+        capAssetsFilter: { type: ASSET_TYPE.FT }
       };
     },
 
@@ -104,7 +104,10 @@
 
       async getInvestmentOpportunities() {
         try {
-          await this.$store.dispatch('investmentOpportunities/getCurrentInvestmentOpportunityByProject', this.project._id);
+          await this.$store.dispatch(
+            'investmentOpportunities/getCurrentInvestmentOpportunityByProject',
+            this.project._id
+          );
         } catch (error) {
           console.error(error);
         }
