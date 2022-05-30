@@ -8,15 +8,13 @@ import { ProjectDetails } from '@/modules/projects/components/ProjectDetails';
 import { ProjectFtCreate } from '@/modules/projects/components/ProjectFtCreate';
 import { ProjectCrowdfundingCreate } from '@/modules/projects/components/ProjectCrowdfundingCreate';
 import { ProjectCrowdfundingInvest } from '@/modules/projects/components/ProjectCrowdfundingInvest';
+import { ProjectContentDraftForm }
+  from '@/modules/projects/components/content/ProjectContentDraftForm';
+import { ProjectContentDraftDetails }
+  from '@/modules/projects/components/content/ProjectContentDraftDetails';
+import { ProjectContentReviewCreate }
+  from '@/modules/projects/components/content/ProjectContentReviewCreate';
 import { ProjectContentDetails } from '@/modules/projects/components/content/ProjectContentDetails';
-
-import {
-  ProjectContentDraftForm
-} from '@/modules/projects/components/content/ProjectContentDraftForm';
-
-import {
-  ProjectContentDraftDetails
-} from '@/modules/projects/components/content/ProjectContentDraftDetails';
 
 const formViewMeta = (redirectTo, roles = [SYSTEM_ROLE.TEAM_ADMIN, SYSTEM_ROLE.ADMIN]) => ({
   auth: roles,
@@ -130,6 +128,16 @@ export const projectsRouter = [
         name: 'projects.content.details',
         path: ':projectId/content/:contentId',
         component: ProjectContentDetails,
+        meta: { auth: [SYSTEM_ROLE.ANY] },
+        props: (route) => ({
+          projectId: route.params.projectId,
+          contentId: route.params.contentId
+        })
+      },
+      {
+        name: 'projects.content.details.createReview',
+        path: ':projectId/content/:contentId/review/create',
+        component: ProjectContentReviewCreate,
         meta: { auth: [SYSTEM_ROLE.ANY] },
         props: (route) => ({
           projectId: route.params.projectId,
