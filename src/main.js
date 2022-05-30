@@ -8,6 +8,7 @@ import { CreateApp } from '@deip/platform-util';
 import { ValidationPlugin } from '@deip/validation-plugin';
 import { VuetifyExtended } from '@deip/vuetify-extended';
 
+import { ReviewsModule } from '@casimir/reviews-module';
 import { EnvModule } from '@deip/env-module';
 import { AttributesModule } from '@deip/attributes-module';
 import { LayoutsModule } from '@deip/layouts-module';
@@ -81,6 +82,7 @@ testApp
 
   // register DEIP modules
   .addModule(ScopesModule)
+  .addModule(ReviewsModule)
   .addModule(AttributesModule)
   .addModule(LayoutsModule, layoutsModuleOptions)
   .addModule(AuthModule)
