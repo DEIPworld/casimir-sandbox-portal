@@ -51,7 +51,7 @@
   import { assetsMixin } from '@deip/assets-module';
   import { dateMixin } from '@deip/platform-components';
   import { DEPOSIT_REQUEST_STATUS } from '@deip/constants';
-  import { orderBy } from '@deip/toolbox/lodash';
+  import { orderBy } from 'lodash';
 
   const colorByDepositStatus = {
     [DEPOSIT_REQUEST_STATUS.PENDING]: 'info',
@@ -117,7 +117,8 @@
       },
 
       formatStatus(status) {
-        return this.$t(`account.wallet.paymentHistory.depositStatus.${DEPOSIT_REQUEST_STATUS[status]}`);
+        return this
+          .$t(`account.wallet.paymentHistory.depositStatus.${DEPOSIT_REQUEST_STATUS[status]}`);
       }
     }
   };
