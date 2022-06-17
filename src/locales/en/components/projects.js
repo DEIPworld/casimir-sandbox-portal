@@ -35,24 +35,13 @@ export default {
     details: {
       backToProject: 'Back to project',
       successPublish: 'Content published successfully!',
-      successRemove: 'Content draft removed successfully!',
-      createReview: 'Create review'
+      successRemove: 'Content draft removed successfully!'
     },
     form: {
       titleCreate: 'Create content draft for \'{name}\'',
       titleEdit: 'Edit content draft for \'{name}\'',
       successCreate: 'Content draft created successfully!',
       successEdit: 'Content draft saved successfully!'
-    },
-    review: {
-      backToDetails: 'Back to project content details',
-      successReviewCreate: 'Your review has been published successfully !',
-      errorReviewCreate: 'An error occurred while adding review, please try again later'
     }
-  },
-  reviews: {
-    create: 'Create review',
-    reviewRequestSuccess: 'Request for the review has been sent successfully',
-    reviewRequestError: 'An error occurred while requesting the review. Please try again later'
   }
 };

@@ -13,7 +13,6 @@
     "precommit": "lint-staged"
   },
   "dependencies": {
-    "@casimir/reviews-module": "^1.381.0",
     "@casimir/scopes-module": "1.382.2",
     "@deip/access-service": "1.382.2",
     "@deip/assets-module": "1.382.2",
@@ -21,7 +20,6 @@
     "@deip/auth-module": "1.382.2",
     "@deip/constants": "1.382.2",
     "@deip/env-module": "1.382.2",
-    "@deip/investment-opportunities-module": "1.381.0",
     "@deip/layouts-module": "1.382.2",
     "@deip/platform-components": "1.382.2",
     "@deip/platform-util": "1.382.2",

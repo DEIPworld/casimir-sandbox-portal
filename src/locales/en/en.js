@@ -4,7 +4,6 @@ import account from './components/account';
 import admin from './components/admin';
 import auth from './components/auth';
 import components from './components/components';
-import investments from './components/investments';
 import projects from './components/projects';
 import teams from './components/teams';
 
@@ -17,7 +16,6 @@ export default {
   admin,
   auth,
   components,
-  investments,
   projects,
   teams,
 

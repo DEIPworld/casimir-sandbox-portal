@@ -9,7 +9,6 @@ export default {
     teams: 'Teams',
     members: 'Members',
     projects: 'Projects',
-    investments: 'Investments',
     poweredByDEIP: 'Powered by DEIP'
   }
 };
