@@ -22,7 +22,10 @@
 
 <script>
   import { VexBlock } from '@deip/vuetify-extended';
-  import { ProjectContentDraftsList as CProjectContentDraftsList } from '@deip/project-content-module';
+  import {
+    ProjectContentDraftsList
+      as CProjectContentDraftsList
+  } from '@deip/project-content-module';
   import { rolesFactory } from '@/mixins';
 
   export default {
@@ -33,7 +36,7 @@
       CProjectContentDraftsList
     },
 
-    mixins: [rolesFactory('teamId')],
+    mixins: [rolesFactory('teamId', true)],
 
     props: {
       projectId: {
@@ -58,7 +61,10 @@
 
     methods: {
       handleClickRow(draft) {
-        this.$router.push({ name: 'projects.content.draft.details', params: { projectId: this.projectId, draftId: draft._id } });
+        this.$router.push({
+          name: 'projects.content.draft.details',
+          params: { projectId: this.projectId, draftId: draft._id }
+        });
       },
 
       handlePublishSuccess() {

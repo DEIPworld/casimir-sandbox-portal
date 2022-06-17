@@ -1,10 +1,18 @@
 import { SYSTEM_ROLE } from '@deip/constants';
 
-export const rolesFactory = (teamIdPath) => ({
+export const rolesFactory = (teamIdPath, isDraft) => ({
   computed: {
     $$isTeamAdmin() {
-      const id = this[teamIdPath];
-      if (!id) return false;
+      let id;
+      if (!id && !isDraft) {
+        id = this[teamIdPath];
+        return false;
+      }
+      if (!id && isDraft) {
+        id = this.project.issuedByTeam
+        && this.$currentUser.teams.includes(this.project.issuer)
+          ? this.project.issuer : false;
+      }
 
       const scope = { name: 'teamId', id };
       return this.$currentUser.hasRole(SYSTEM_ROLE.TEAM_ADMIN, scope);
