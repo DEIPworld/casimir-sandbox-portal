@@ -8,7 +8,6 @@ import { CreateApp } from '@deip/platform-util';
 import { ValidationPlugin } from '@deip/validation-plugin';
 import { VuetifyExtended } from '@deip/vuetify-extended';
 
-import { ReviewsModule } from '@casimir/reviews-module';
 import { EnvModule } from '@deip/env-module';
 import { AttributesModule } from '@deip/attributes-module';
 import { LayoutsModule } from '@deip/layouts-module';
@@ -20,7 +19,6 @@ import { PortalsModule } from '@deip/portals-module';
 import { ProjectsModule } from '@deip/projects-module';
 import { WalletModule } from '@deip/wallet-module';
 import { AssetsModule } from '@deip/assets-module';
-import { InvestmentOpportunitiesModule } from '@deip/investment-opportunities-module';
 import { ProjectContentModule } from '@deip/project-content-module';
 
 import { TestAppAccountModule } from '@/modules/account';
@@ -28,7 +26,6 @@ import { TestAppAdminModule } from '@/modules/admin';
 import { TestAppAuthModule } from '@/modules/auth';
 import { TestAppTeamsModule } from '@/modules/teams';
 import { TestAppProjectsModule } from '@/modules/projects';
-import { TestAppInvestmentsModule } from '@/modules/investments';
 
 import { layoutBuilderElements } from '@/modules/projects/config/layoutBuilder';
 import App from './App';
@@ -82,7 +79,6 @@ testApp
 
   // register DEIP modules
   .addModule(ScopesModule)
-  .addModule(ReviewsModule)
   .addModule(AttributesModule)
   .addModule(LayoutsModule, layoutsModuleOptions)
   .addModule(AuthModule)
@@ -92,7 +88,6 @@ testApp
   .addModule(ProjectsModule, projectsModuleOptions)
   .addModule(WalletModule)
   .addModule(AssetsModule)
-  .addModule(InvestmentOpportunitiesModule)
   .addModule(ProjectContentModule)
 
   .addModule(TestAppAccountModule)
@@ -100,7 +95,6 @@ testApp
   .addModule(TestAppAuthModule)
   .addModule(TestAppTeamsModule)
   .addModule(TestAppProjectsModule)
-  .addModule(TestAppInvestmentsModule)
 
   // resolve and install all modules
   .bootstrap()

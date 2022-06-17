@@ -23,21 +23,60 @@
       return {
         menu: {
           global: [
-            { icon: 'mdi-account-group-outline', title: this.$t('components.navigation.teams'), to: { name: 'teams' } },
-            { icon: 'mdi-lightbulb-on-outline', title: this.$t('components.navigation.projects'), to: { name: 'projects' } },
-            { icon: 'mdi-briefcase-outline', title: this.$t('components.navigation.investments'), to: { name: 'investments' } }
+            {
+              icon: 'mdi-account-group-outline',
+              title: this.$t('components.navigation.teams'),
+              to: { name: 'teams' }
+            },
+            {
+              icon: 'mdi-lightbulb-on-outline',
+              title: this.$t('components.navigation.projects'),
+              to: { name: 'projects' }
+            }
           ],
           admin: [
-            { icon: 'mdi-account-multiple', title: this.$t('components.navigation.members'), to: { name: 'admin.users' } },
-            { icon: 'mdi-domain', title: this.$t('components.navigation.teams'), to: { name: 'admin.teams' } },
-            { icon: 'mdi-school', title: this.$t('components.navigation.projects'), to: { name: 'admin.projects' } },
-            { icon: 'mdi-puzzle-outline', title: 'Attributes', to: { name: 'admin.attributes' } },
-            { icon: 'mdi-view-quilt-outline', title: 'Layouts', to: { name: 'admin.layouts' } }
+            {
+              icon: 'mdi-account-multiple',
+              title: this.$t('components.navigation.members'),
+              to: { name: 'admin.users' }
+            },
+            {
+              icon: 'mdi-domain',
+              title: this.$t('components.navigation.teams'),
+              to: { name: 'admin.teams' }
+            },
+            {
+              icon: 'mdi-school',
+              title: this.$t('components.navigation.projects'),
+              to: { name: 'admin.projects' }
+            },
+            {
+              icon: 'mdi-puzzle-outline',
+              title: 'Attributes',
+              to: { name: 'admin.attributes' }
+            },
+            {
+              icon: 'mdi-view-quilt-outline',
+              title: 'Layouts',
+              to: { name: 'admin.layouts' }
+            }
           ],
           account: [
-            { icon: 'mdi-account-outline', title: this.$t('components.appBar.account'), to: { name: 'account.details' } },
-            { icon: 'mdi-wallet-outline', title: this.$t('components.appBar.wallet'), to: { name: 'account.wallet' } },
-            { icon: 'mdi-lock-outline', title: this.$t('components.appBar.password'), to: { name: 'account.password' } }
+            {
+              icon: 'mdi-account-outline',
+              title: this.$t('components.appBar.account'),
+              to: { name: 'account.details' }
+            },
+            {
+              icon: 'mdi-wallet-outline',
+              title: this.$t('components.appBar.wallet'),
+              to: { name: 'account.wallet' }
+            },
+            {
+              icon: 'mdi-lock-outline',
+              title: this.$t('components.appBar.password'),
+              to: { name: 'account.password' }
+            }
           ]
         }
       };

@@ -23,38 +23,11 @@
       :schema-data="schemaData"
       class="flex-grow-1"
     />
-
-    <div class="ma-6 ma-md-12">
-      <v-btn
-        color="primary"
-        small
-        @click.stop="handleDialog()"
-      >
-        {{ $t('projects.reviews.create') }}
-      </v-btn>
-    </div>
-
-    <review-create-modal
-      v-model="dialog"
-      :project-id="project._id"
-      @select="handleProjectContentSelect"
-    />
-
-    <div class="ma-6 ma-md-12">
-      <template v-if="!disableReviewRequest && projectId!==null">
-        <review-request
-          :project-id="projectId"
-          @success="handleRequestSuccess"
-          @error="handleRequestError"
-        />
-      </template>
-    </div>
   </div>
 </template>
 
 <script>
   import { ProjectDetails as CProjectDetails } from '@deip/projects-module';
-  import { ReviewCreateModal, ReviewRequest } from '@casimir/reviews-module';
 
   import { rolesFactory } from '@/mixins';
 
@@ -62,21 +35,15 @@
     name: 'ProjectDetails',
 
     components: {
-      CProjectDetails,
-      ReviewRequest,
-      ReviewCreateModal
+      CProjectDetails
     },
 
-    mixins: [rolesFactory('teamId')],
+    mixins: [rolesFactory('issuer')],
 
     props: {
       projectId: {
         type: String,
         default: null
-      },
-      disableReviewRequest: {
-        type: Boolean,
-        default: false
       }
     },
 
@@ -102,25 +69,10 @@
 
       schemaData() {
         return {
-          crowdfundingWidget: {
-            projectId: this.projectId,
-            canUserStartCrowdfunding: this.canUserStartCrowdfunding,
-            startCrowdfundingLink: { name: 'projects.crowdfunding.create' },
-            investLink: { name: 'projects.crowdfunding.invest' }
-          },
-          ProjectFtWidget: {
-            nfts: this.project.nfts, // rename to fts
-            canUserIssueTokens: this.$$isTeamAdmin
-          },
           projectContent: {
             projectId: this.projectId
           }
         };
-      },
-
-      canUserStartCrowdfunding() {
-        // rename to fts
-        return this.$$isTeamAdmin && this.project.nfts.length > 0;
       },
 
       canEdit() {
@@ -133,15 +85,6 @@
     },
 
     methods: {
-      handleDialog() {
-        this.dialog = true;
-      },
-      handleProjectContentSelect(value) {
-        this.$router.push({
-          name: 'projects.content.details.createReview',
-          params: { projectId: this.projectId, contentId: value }
-        });
-      },
       async getProject() {
         if (this.projectId) {
           try {
@@ -151,19 +94,7 @@
           }
         }
         this.ready = true;
-      },
-      handleRequestSuccess() {
-        this.$notifier.showSuccess(this.$t('projects.reviews.reviewRequestSuccess'));
-      },
-
-      handleRequestError(err) {
-        this.$notifier.showError(
-          err.response && err.response.data
-            ? err.response.data
-            : this.$t('projects.reviews.reviewRequestError')
-        );
       }
-
     }
   };
 </script>

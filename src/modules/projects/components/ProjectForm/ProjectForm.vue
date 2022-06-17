@@ -59,7 +59,7 @@
 
     computed: {
       teamIdComputed() {
-        return this.project?.teamId || this.teamId;
+        return this.project?.issuer || this.teamId;
       },
       project() {
         return this.projectId ? this.$store.getters['projects/one'](this.projectId) : {};
