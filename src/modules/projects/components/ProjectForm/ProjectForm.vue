@@ -7,7 +7,7 @@
 
       <c-project-form
         :team-id="teamId"
-        :project="project"
+        :project="projectMetadata"
         :schema="schema"
         :mode="mode"
         @success="handleSuccess"
@@ -62,7 +62,13 @@
         return this.project?.issuer || this.teamId;
       },
       project() {
-        return this.projectId ? this.$store.getters['projects/one'](this.projectId) : {};
+        return this.projectId ? this.$store.getters['projects/one'](this.projectId) : null;
+      },
+
+      projectMetadata() {
+        if (!this.project) return null;
+
+        return this.project.metadata;
       },
 
       schema() {
