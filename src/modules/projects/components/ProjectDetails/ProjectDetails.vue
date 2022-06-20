@@ -38,7 +38,7 @@
       CProjectDetails
     },
 
-    mixins: [rolesFactory('issuer')],
+    mixins: [rolesFactory('teamId')],
 
     props: {
       projectId: {
@@ -56,7 +56,7 @@
 
     computed: {
       teamId() {
-        return this.project.teamId;
+        return this.project.issuer;
       },
 
       project() {
