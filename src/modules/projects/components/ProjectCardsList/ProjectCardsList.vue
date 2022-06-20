@@ -1,5 +1,5 @@
 <template>
-  <projects-data-provider :team-id="teamId">
+  <projects-data-provider :issuer="teamId">
     <template #default="{ projects, ready }">
       <v-data-iterator
         ref="iterator"
