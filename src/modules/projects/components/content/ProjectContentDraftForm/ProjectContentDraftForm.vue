@@ -17,7 +17,9 @@
 </template>
 
 <script>
-  import { ProjectContentDraftForm as CProjectContentDraftForm } from '@deip/project-content-module';
+  import {
+    ProjectContentDraftForm as CProjectContentDraftForm
+  } from '@deip/project-content-module';
   import { VexSection, VexSectionTitle } from '@deip/vuetify-extended';
   import { VeStack } from '@deip/vue-elements';
   import { formMixin } from '@deip/platform-components';
@@ -36,7 +38,7 @@
       CProjectContentDraftForm
     },
 
-    mixins: [rolesFactory('teamId')],
+    mixins: [rolesFactory('project.issuer')],
 
     props: {
       projectId: {
@@ -76,7 +78,7 @@
 
       projectName() {
         return this.$attributes.getMappedData(
-          'project.name',
+          'collection.name',
           this.project?.attributes
         )?.value;
       },
