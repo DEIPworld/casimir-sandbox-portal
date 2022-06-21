@@ -78,8 +78,8 @@
 
       projectName() {
         return this.$attributes.getMappedData(
-          'collection.name',
-          this.project?.attributes
+          'nftCollection.name',
+          this.project?.metadata?.attributes
         )?.value;
       },
 
