@@ -30,8 +30,8 @@
             },
             {
               icon: 'mdi-lightbulb-on-outline',
-              title: this.$t('components.navigation.projects'),
-              to: { name: 'projects' }
+              title: this.$t('components.navigation.nftCollections'),
+              to: { name: 'nftCollections' }
             }
           ],
           admin: [
@@ -47,8 +47,8 @@
             },
             {
               icon: 'mdi-school',
-              title: this.$t('components.navigation.projects'),
-              to: { name: 'admin.projects' }
+              title: this.$t('components.navigation.nftCollections'),
+              to: { name: 'admin.nftCollections' }
             },
             {
               icon: 'mdi-puzzle-outline',
