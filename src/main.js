@@ -16,7 +16,7 @@ import { AuthModule } from '@deip/auth-module';
 import { UsersModule } from '@deip/users-module';
 import { TeamsModule } from '@deip/teams-module';
 import { PortalsModule } from '@deip/portals-module';
-import { ProjectsModule } from '@deip/projects-module';
+import { NftCollectionsModule } from '@casimir/nft-collections-module';
 import { WalletModule } from '@deip/wallet-module';
 import { AssetsModule } from '@deip/assets-module';
 import { ProjectContentModule } from '@deip/project-content-module';
@@ -25,9 +25,9 @@ import { TestAppAccountModule } from '@/modules/account';
 import { TestAppAdminModule } from '@/modules/admin';
 import { TestAppAuthModule } from '@/modules/auth';
 import { TestAppTeamsModule } from '@/modules/teams';
-import { TestAppProjectsModule } from '@/modules/projects';
+import { TestAppNftCollectionsModule } from '@/modules/nftCollections';
 
-import { layoutBuilderElements } from '@/modules/projects/config/layoutBuilder';
+import { layoutBuilderElements } from '@/modules/nftCollections/config/layoutBuilder';
 import App from './App';
 import router from './router';
 import store from './store';
@@ -60,12 +60,12 @@ const teamsModuleOptions = {
   ]
 };
 
-const projectsModuleOptions = {
+const nftCollectionsModuleOptions = {
   attributesMappedKeys: [
-    { key: 'name', label: 'Project name', allowedTypes: ['text'] }
+    { key: 'name', label: 'NFT collection name', allowedTypes: ['text'] }
   ],
   layoutsMappedKeys: [
-    { key: 'listCard', label: 'Project listing card', allowedTypes: ['details'] }
+    { key: 'listCard', label: 'NFT collection listing card', allowedTypes: ['details'] }
   ]
 };
 
@@ -85,7 +85,7 @@ testApp
   .addModule(UsersModule, usersModuleOptions)
   .addModule(TeamsModule, teamsModuleOptions)
   .addModule(PortalsModule)
-  .addModule(ProjectsModule, projectsModuleOptions)
+  .addModule(NftCollectionsModule, nftCollectionsModuleOptions)
   .addModule(WalletModule)
   .addModule(AssetsModule)
   .addModule(ProjectContentModule)
@@ -94,7 +94,7 @@ testApp
   .addModule(TestAppAdminModule)
   .addModule(TestAppAuthModule)
   .addModule(TestAppTeamsModule)
-  .addModule(TestAppProjectsModule)
+  .addModule(TestAppNftCollectionsModule)
 
   // resolve and install all modules
   .bootstrap()

@@ -24,10 +24,10 @@
           text
           color="primary"
           small
-          :to="{name: 'projects.create', query: { teamId }}"
+          :to="{name: 'nftCollections.create', query: { teamId }}"
           class="align-self-center"
         >
-          {{ $t('teams.details.createProject') }}
+          {{ $t('teams.details.createNftCollection') }}
         </v-btn>
       </ve-stack>
     </v-toolbar>
@@ -77,8 +77,8 @@
 
     <vex-section>
       <ve-stack :gap="24">
-        <span class="text-h6">{{ $t('teams.details.projects') }}:</span>
-        <project-cards-list :team-id="teamId" />
+        <span class="text-h6">{{ $t('teams.details.nftCollections') }}:</span>
+        <nft-collection-cards-list :team-id="teamId" />
       </ve-stack>
     </vex-section>
   </div>
@@ -88,12 +88,13 @@
   import { VeStack } from '@deip/vue-elements';
   import { VexSection } from '@deip/vuetify-extended';
   import { rolesFactory } from '@/mixins';
-  import { ProjectCardsList } from '@/modules/projects/components/ProjectCardsList';
   import {
     TeamDetails as CTeamDetails,
     TeamAddMemberModal,
     TeamMemberCards
   } from '@deip/teams-module';
+  import { NftCollectionCardsList }
+    from '@/modules/nftCollections/components/NftCollectionCardsList';
 
   export default {
     name: 'TeamDetails',
@@ -104,7 +105,7 @@
       TeamMemberCards,
       TeamAddMemberModal,
       CTeamDetails,
-      ProjectCardsList
+      NftCollectionCardsList
     },
 
     mixins: [rolesFactory('teamId')],
@@ -119,8 +120,7 @@
     data() {
       return {
         ready: false,
-        dialog: false,
-        teamProject: {}
+        dialog: false
       };
     },
 

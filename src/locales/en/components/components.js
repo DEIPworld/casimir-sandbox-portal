@@ -8,7 +8,7 @@ export default {
   navigation: {
     teams: 'Teams',
     members: 'Members',
-    projects: 'Projects',
+    nftCollections: 'NFT collections',
     poweredByDEIP: 'Powered by DEIP'
   }
 };

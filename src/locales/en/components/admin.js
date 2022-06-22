@@ -1,7 +1,7 @@
 export default {
-  projects: {
-    title: 'Projects',
-    project: {
+  nftCollections: {
+    title: 'NFT collections',
+    nftCollection: {
       title: 'Title',
       created: 'Created at'
     }

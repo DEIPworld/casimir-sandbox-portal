@@ -4,7 +4,7 @@ import account from './components/account';
 import admin from './components/admin';
 import auth from './components/auth';
 import components from './components/components';
-import projects from './components/projects';
+import nftCollections from './components/nftCollections';
 import teams from './components/teams';
 
 import constants from './constants';
@@ -16,7 +16,7 @@ export default {
   admin,
   auth,
   components,
-  projects,
+  nftCollections,
   teams,
 
   constants

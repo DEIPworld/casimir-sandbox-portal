@@ -12,9 +12,9 @@ export default {
   },
   details: {
     members: 'Members',
-    projects: 'Projects',
+    nftCollections: 'NFT collections',
     edit: 'Edit',
-    createProject: 'Create project',
+    createNftCollection: 'Create NFT collection',
     inviteMembers: 'Invite members'
   },
   cards: {

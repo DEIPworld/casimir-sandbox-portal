@@ -3,17 +3,17 @@ import { VIEW_MODE } from '@deip/constants';
 
 import { AdminTeams } from '@/modules/admin/components/AdminTeams';
 import { AdminUsers } from '@/modules/admin/components/AdminUsers';
-import { AdminProjects } from '@/modules/admin/components/AdminProjects';
+import { AdminNftCollections } from '@/modules/admin/components/AdminNftCollections';
 
 import { AdminAttributes } from '@/modules/admin/components/attributes/AdminAttributes';
 import { AdminAttributesForm } from '@/modules/admin/components/attributes/AdminAttributesForm';
-import { AdminAttributesSettings } from '@/modules/admin/components/attributes/AdminAttributesSettings';
+import { AdminAttributesSettings }
+  from '@/modules/admin/components/attributes/AdminAttributesSettings';
 
 import { AdminLayouts } from '@/modules/admin/components/layouts/AdminLayouts';
 import { AdminLayoutsForm } from '@/modules/admin/components/layouts/AdminLayoutsForm';
 import { AdminLayoutsSettings } from '@/modules/admin/components/layouts/AdminLayoutsSettings';
 
-// import { schoolsRouterFactory } from '@/modules/schools/router';
 import { routerView } from '@deip/platform-util';
 
 const formViewMeta = (
@@ -58,9 +58,9 @@ export const adminRouter = [
         meta: { auth: [SYSTEM_ROLE.ANY] }
       },
       {
-        name: 'admin.projects',
-        path: 'projects',
-        component: AdminProjects,
+        name: 'admin.nftCollections',
+        path: 'nft-collections',
+        component: AdminNftCollections,
         meta: { auth: [SYSTEM_ROLE.ANY] }
       },
       {
