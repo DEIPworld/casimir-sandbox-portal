@@ -97,7 +97,7 @@
 
       handlePublishSuccess() {
         this.$notifier.showSuccess(this.$t('nftCollections.contentDraft.details.successPublish'));
-        this.$store.dispatch('projectContent/getListByProjectId', this.nftCollectionId);
+        this.$store.dispatch('projectContent/getListByNftCollectionId', this.nftCollectionId);
         this.returnToNftCollection();
       },
 

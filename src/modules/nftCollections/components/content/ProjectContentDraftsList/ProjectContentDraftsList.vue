@@ -13,7 +13,7 @@
       </v-btn>
     </template>
     <c-project-content-drafts-list
-      :project-id="nftCollectionId"
+      :nft-collection-id="nftCollectionId"
       @click-row="handleClickRow"
       @publish-success="handlePublishSuccess"
       @remove-success="handleRemoveSuccess"
@@ -74,7 +74,7 @@
 
       handlePublishSuccess() {
         this.$notifier.showSuccess(this.$t('nftCollections.contentDraft.details.successPublish'));
-        this.$store.dispatch('projectContent/getListByProjectId', this.nftCollectionId);
+        this.$store.dispatch('projectContent/getListByNftCollectionId', this.nftCollectionId);
       },
 
       handleRemoveSuccess() {
