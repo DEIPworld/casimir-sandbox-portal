@@ -1,6 +1,6 @@
 <template>
   <c-project-content-list
-    :project-id="nftCollectionId"
+    :nft-collection-id="nftCollectionId"
     @click-row="handleClickRow"
   />
 </template>
