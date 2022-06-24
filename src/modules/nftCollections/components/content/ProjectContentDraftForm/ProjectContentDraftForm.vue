@@ -6,7 +6,7 @@
       </vex-section-title>
 
       <c-project-content-draft-form
-        :project="nftCollection"
+        :nft-collection="nftCollection"
         :draft="draft"
         :mode="mode"
         @cancel="handleCancel"
