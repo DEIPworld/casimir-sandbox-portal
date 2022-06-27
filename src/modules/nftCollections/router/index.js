@@ -5,12 +5,12 @@ import { VIEW_MODE } from '@deip/constants';
 import { NftCollectionList } from '@/modules/nftCollections/components/NftCollectionList';
 import { NftCollectionForm } from '@/modules/nftCollections/components/NftCollectionForm';
 import { NftCollectionDetails } from '@/modules/nftCollections/components/NftCollectionDetails';
-import { ProjectContentDraftForm }
-  from '@/modules/nftCollections/components/content/ProjectContentDraftForm';
-import { ProjectContentDraftDetails }
-  from '@/modules/nftCollections/components/content/ProjectContentDraftDetails';
-import { ProjectContentDetails }
-  from '@/modules/nftCollections/components/content/ProjectContentDetails';
+import { NftItemDraftForm }
+  from '@/modules/nftCollections/components/content/NftItemDraftForm';
+import { NftItemDraftDetails }
+  from '@/modules/nftCollections/components/content/NftItemDraftDetails';
+import { NftItemDetails }
+  from '@/modules/nftCollections/components/content/NftItemDetails';
 
 const formViewMeta = (redirectTo, roles = [SYSTEM_ROLE.TEAM_ADMIN, SYSTEM_ROLE.ADMIN]) => ({
   auth: roles,
@@ -65,7 +65,7 @@ export const nftCollectionsRouter = [
       {
         name: 'nftCollections.content.draft.create',
         path: ':nftCollectionId/content/draft/create',
-        component: ProjectContentDraftForm,
+        component: NftItemDraftForm,
         meta: formViewMeta('nftCollections.details', [SYSTEM_ROLE.ANY]),
         props: (route) => ({
           nftCollectionId: route.params.nftCollectionId,
@@ -75,7 +75,7 @@ export const nftCollectionsRouter = [
       {
         name: 'nftCollections.content.draft.details',
         path: ':nftCollectionId/content/draft/:draftId',
-        component: ProjectContentDraftDetails,
+        component: NftItemDraftDetails,
         meta: { auth: [SYSTEM_ROLE.ANY] },
         props: (route) => ({
           nftCollectionId: route.params.nftCollectionId,
@@ -85,7 +85,7 @@ export const nftCollectionsRouter = [
       {
         name: 'nftCollections.content.draft.edit',
         path: ':nftCollectionId/content/draft/:draftId/edit',
-        component: ProjectContentDraftForm,
+        component: NftItemDraftForm,
         meta: formViewMeta('nftCollections.details', [SYSTEM_ROLE.ANY]),
         props: (route) => ({
           nftCollectionId: route.params.nftCollectionId,
@@ -96,7 +96,7 @@ export const nftCollectionsRouter = [
       {
         name: 'nftCollections.content.details',
         path: ':nftCollectionId/content/:contentId',
-        component: ProjectContentDetails,
+        component: NftItemDetails,
         meta: { auth: [SYSTEM_ROLE.ANY] },
         props: (route) => ({
           nftCollectionId: route.params.nftCollectionId,

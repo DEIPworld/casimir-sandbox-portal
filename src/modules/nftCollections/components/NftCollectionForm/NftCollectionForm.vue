@@ -72,7 +72,7 @@
       nftCollectionMetadata() {
         if (!this.nftCollection) return null;
 
-        return this.nftCollection.metadata;
+        return this.nftCollection;
       },
 
       schema() {

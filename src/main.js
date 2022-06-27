@@ -19,7 +19,7 @@ import { PortalsModule } from '@deip/portals-module';
 import { NftCollectionsModule } from '@casimir/nft-collections-module';
 import { WalletModule } from '@deip/wallet-module';
 import { AssetsModule } from '@deip/assets-module';
-import { ProjectContentModule } from '@deip/project-content-module';
+import { NftItemsModule } from '@casimir/nft-items-module';
 
 import { TestAppAccountModule } from '@/modules/account';
 import { TestAppAdminModule } from '@/modules/admin';
@@ -88,7 +88,7 @@ testApp
   .addModule(NftCollectionsModule, nftCollectionsModuleOptions)
   .addModule(WalletModule)
   .addModule(AssetsModule)
-  .addModule(ProjectContentModule)
+  .addModule(NftItemsModule)
 
   .addModule(TestAppAccountModule)
   .addModule(TestAppAdminModule)

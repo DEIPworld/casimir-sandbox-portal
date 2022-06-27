@@ -73,7 +73,7 @@
 
       schemaData() {
         return {
-          projectContent: {
+          NftItems: {
             nftCollectionId: this.nftCollectionId
           }
         };

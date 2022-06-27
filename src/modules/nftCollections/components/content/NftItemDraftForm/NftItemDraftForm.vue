@@ -5,7 +5,7 @@
         {{ title }}
       </vex-section-title>
 
-      <c-project-content-draft-form
+      <c-nft-item-draft-form
         :nft-collection="nftCollection"
         :draft="draft"
         :mode="mode"
@@ -18,8 +18,8 @@
 
 <script>
   import {
-    ProjectContentDraftForm as CProjectContentDraftForm
-  } from '@deip/project-content-module';
+    NftItemDraftForm as CNftItemDraftForm
+  } from '@casimir/nft-items-module';
   import { VexSection, VexSectionTitle } from '@deip/vuetify-extended';
   import { VeStack } from '@deip/vue-elements';
   import { formMixin } from '@deip/platform-components';
@@ -29,13 +29,13 @@
   import { rolesFactory } from '@/mixins';
 
   export default {
-    name: 'ProjectContentDraftForm',
+    name: 'NftItemDraftForm',
 
     components: {
       VexSection,
       VexSectionTitle,
       VeStack,
-      CProjectContentDraftForm
+      CNftItemDraftForm
     },
 
     mixins: [rolesFactory('nftCollection.issuer')],
@@ -80,7 +80,7 @@
       nftCollectionName() {
         return this.$attributes.getMappedData(
           'nftCollection.name',
-          this.nftCollection?.metadata?.attributes
+          this.nftCollection?.attributes
         )?.value;
       },
 

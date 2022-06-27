@@ -15,23 +15,23 @@
         </v-btn>
       </v-sheet>
 
-      <c-project-content-details :content-id="contentId" />
+      <c-nft-item-details :content-id="contentId" />
     </ve-stack>
   </vex-section>
 </template>
 
 <script>
-  import { ProjectContentDetails as CProjectContentDetails } from '@deip/project-content-module';
+  import { NftItemDetails as CNftItemDetails } from '@casimir/nft-items-module';
   import { VexSection } from '@deip/vuetify-extended';
   import { VeStack } from '@deip/vue-elements';
 
   export default {
-    name: 'ProjectContentDetails',
+    name: 'NftItemDetails',
 
     components: {
       VexSection,
       VeStack,
-      CProjectContentDetails
+      CNftItemDetails
     },
 
     props: {

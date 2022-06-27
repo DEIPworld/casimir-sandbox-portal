@@ -1,18 +1,18 @@
 <template>
-  <c-project-content-list
+  <c-nft-items-list
     :nft-collection-id="nftCollectionId"
     @click-row="handleClickRow"
   />
 </template>
 
 <script>
-  import { ProjectContentList as CProjectContentList } from '@deip/project-content-module';
+  import { NftItemsList as CNftItemsList } from '@casimir/nft-items-module';
 
   export default {
-    name: 'ProjectContentList',
+    name: 'NftItemsList',
 
     components: {
-      CProjectContentList
+      CNftItemsList
     },
 
     props: {

@@ -12,7 +12,7 @@
         {{ $t('nftCollections.details.create') }}
       </v-btn>
     </template>
-    <c-project-content-drafts-list
+    <c-nft-item-drafts-list
       :nft-collection-id="nftCollectionId"
       @click-row="handleClickRow"
       @publish-success="handlePublishSuccess"
@@ -24,17 +24,17 @@
 <script>
   import { VexBlock } from '@deip/vuetify-extended';
   import {
-    ProjectContentDraftsList
-      as CProjectContentDraftsList
-  } from '@deip/project-content-module';
+    NftItemDraftsList
+      as CNftItemDraftsList
+  } from '@casimir/nft-items-module';
   import { rolesFactory } from '@/mixins';
 
   export default {
-    name: 'ProjectContentDraftsList',
+    name: 'NftItemMetadataDraftsList',
 
     components: {
       VexBlock,
-      CProjectContentDraftsList
+      CNftItemDraftsList
     },
 
     mixins: [rolesFactory('nftCollection.issuer')],

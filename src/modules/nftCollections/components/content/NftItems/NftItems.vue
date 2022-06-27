@@ -7,9 +7,9 @@
     </template>
 
     <ve-stack>
-      <project-content-list :nft-collection-id="nftCollectionId" />
+      <nft-items-list :nft-collection-id="nftCollectionId" />
 
-      <project-content-drafts-list :nft-collection-id="nftCollectionId" />
+      <nft-item-drafts-list :nft-collection-id="nftCollectionId" />
     </ve-stack>
   </vex-block>
 </template>
@@ -17,17 +17,17 @@
 <script>
   import { VexBlock } from '@deip/vuetify-extended';
   import { VeStack } from '@deip/vue-elements';
-  import { ProjectContentList } from '../ProjectContentList';
-  import { ProjectContentDraftsList } from '../ProjectContentDraftsList';
+  import { NftItemsList } from '../NftItemsList';
+  import { NftItemDraftsList } from '../NftItemDraftsList';
 
   export default {
-    name: 'ProjectContent',
+    name: 'NftItems',
 
     components: {
       VexBlock,
       VeStack,
-      ProjectContentList,
-      ProjectContentDraftsList
+      NftItemsList,
+      NftItemDraftsList
 
     },
     props: {

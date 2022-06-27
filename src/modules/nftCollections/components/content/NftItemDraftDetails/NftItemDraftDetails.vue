@@ -15,7 +15,7 @@
         </v-btn>
       </v-sheet>
 
-      <c-project-content-draft-details
+      <c-nft-item-draft-details
         :content-id="draftId"
         with-actions
         :can-manage="$$isTeamAdmin"
@@ -28,20 +28,20 @@
 </template>
 
 <script>
-  import { ProjectContentDraftDetails as CProjectContentDraftDetails }
-    from '@deip/project-content-module';
+  import { NftItemDraftDetails as CNftItemDraftDetails }
+    from '@casimir/nft-items-module';
   import { VexSection } from '@deip/vuetify-extended';
   import { VeStack } from '@deip/vue-elements';
 
   import { rolesFactory } from '@/mixins';
 
   export default {
-    name: 'ProjectContentDraftDetails',
+    name: 'NftItemDraftDetails',
 
     components: {
       VexSection,
       VeStack,
-      CProjectContentDraftDetails
+      CNftItemDraftDetails
     },
 
     mixins: [rolesFactory('nftCollection.issuer')],
