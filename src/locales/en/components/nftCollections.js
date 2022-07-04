@@ -11,21 +11,21 @@ export default {
   },
   details: {
     edit: 'Edit',
-    content: 'Content',
+    nftItem: 'NFT item',
     drafts: 'Drafts',
     create: 'Create'
   },
-  contentDraft: {
+  nftItemDraft: {
     details: {
       backToNftCollection: 'Back to collection',
-      successPublish: 'Content published successfully!',
-      successRemove: 'Content draft removed successfully!'
+      successPublish: 'NFT item published successfully!',
+      successRemove: 'NFT item draft removed successfully!'
     },
     form: {
-      titleCreate: 'Create content draft for \'{name}\'',
-      titleEdit: 'Edit content draft for \'{name}\'',
-      successCreate: 'Content draft created successfully!',
-      successEdit: 'Content draft saved successfully!'
+      titleCreate: 'Create NFT item draft for \'{name}\'',
+      titleEdit: 'Edit NFT item draft for \'{name}\'',
+      successCreate: 'NFT item draft created successfully!',
+      successEdit: 'NFT item draft saved successfully!'
     }
   }
 };

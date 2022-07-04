@@ -6,13 +6,13 @@
         color="primary"
         small
         text
-        :to="{ name: 'nftCollections.content.draft.create',
+        :to="{ name: 'nftCollections.nftItem.draft.create',
                params: { nftCollectionId: nftCollectionId } }"
       >
         {{ $t('nftCollections.details.create') }}
       </v-btn>
     </template>
-    <c-project-content-drafts-list
+    <c-nft-item-drafts-list
       :nft-collection-id="nftCollectionId"
       @click-row="handleClickRow"
       @publish-success="handlePublishSuccess"
@@ -24,17 +24,17 @@
 <script>
   import { VexBlock } from '@deip/vuetify-extended';
   import {
-    ProjectContentDraftsList
-      as CProjectContentDraftsList
-  } from '@deip/project-content-module';
+    NftItemDraftsList
+      as CNftItemDraftsList
+  } from '@casimir/nft-items-module';
   import { rolesFactory } from '@/mixins';
 
   export default {
-    name: 'ProjectContentDraftsList',
+    name: 'NftItemDraftsList',
 
     components: {
       VexBlock,
-      CProjectContentDraftsList
+      CNftItemDraftsList
     },
 
     mixins: [rolesFactory('nftCollection.issuer')],
@@ -67,18 +67,18 @@
     methods: {
       handleClickRow(draft) {
         this.$router.push({
-          name: 'nftCollections.content.draft.details',
+          name: 'nftCollections.nftItem.draft.details',
           params: { nftCollectionId: this.nftCollectionId, draftId: draft._id }
         });
       },
 
       handlePublishSuccess() {
-        this.$notifier.showSuccess(this.$t('nftCollections.contentDraft.details.successPublish'));
-        this.$store.dispatch('projectContent/getListByNftCollectionId', this.nftCollectionId);
+        this.$notifier.showSuccess(this.$t('nftCollections.nftItemDraft.details.successPublish'));
+        this.$store.dispatch('nftItems/getListByNftCollectionId', this.nftCollectionId);
       },
 
       handleRemoveSuccess() {
-        this.$notifier.showSuccess(this.$t('nftCollections.contentDraft.details.successRemove'));
+        this.$notifier.showSuccess(this.$t('nftCollections.nftItemDraft.details.successRemove'));
       }
     }
   };

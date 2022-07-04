@@ -11,27 +11,30 @@
           <v-icon left>
             mdi-arrow-left
           </v-icon>
-          {{ $t('nftCollections.contentDraft.details.backToNftCollection') }}
+          {{ $t('nftCollections.nftItemDraft.details.backToNftCollection') }}
         </v-btn>
       </v-sheet>
 
-      <c-project-content-details :content-id="contentId" />
+      <c-nft-item-details
+        :nft-item-id="nftItemId"
+        :nft-collection-id="nftCollectionId"
+      />
     </ve-stack>
   </vex-section>
 </template>
 
 <script>
-  import { ProjectContentDetails as CProjectContentDetails } from '@deip/project-content-module';
+  import { NftItemDetails as CNftItemDetails } from '@casimir/nft-items-module';
   import { VexSection } from '@deip/vuetify-extended';
   import { VeStack } from '@deip/vue-elements';
 
   export default {
-    name: 'ProjectContentDetails',
+    name: 'NftItemDetails',
 
     components: {
       VexSection,
       VeStack,
-      CProjectContentDetails
+      CNftItemDetails
     },
 
     props: {
@@ -39,7 +42,7 @@
         type: String,
         required: true
       },
-      contentId: {
+      nftItemId: {
         type: String,
         required: true
       }
