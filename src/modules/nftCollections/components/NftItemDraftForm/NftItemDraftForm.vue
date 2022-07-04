@@ -5,7 +5,7 @@
         {{ title }}
       </vex-section-title>
 
-      <c-project-content-draft-form
+      <c-nft-item-draft-form
         :nft-collection="nftCollection"
         :draft="draft"
         :mode="mode"
@@ -18,8 +18,8 @@
 
 <script>
   import {
-    ProjectContentDraftForm as CProjectContentDraftForm
-  } from '@deip/project-content-module';
+    NftItemDraftForm as CNftItemDraftForm
+  } from '@casimir/nft-items-module';
   import { VexSection, VexSectionTitle } from '@deip/vuetify-extended';
   import { VeStack } from '@deip/vue-elements';
   import { formMixin } from '@deip/platform-components';
@@ -29,13 +29,13 @@
   import { rolesFactory } from '@/mixins';
 
   export default {
-    name: 'ProjectContentDraftForm',
+    name: 'NftItemDraftForm',
 
     components: {
       VexSection,
       VexSectionTitle,
       VeStack,
-      CProjectContentDraftForm
+      CNftItemDraftForm
     },
 
     mixins: [rolesFactory('nftCollection.issuer')],
@@ -70,7 +70,7 @@
       },
 
       draft() {
-        return this.draftId ? this.$store.getters['projectContentDrafts/one'](this.draftId) : null;
+        return this.draftId ? this.$store.getters['nftItemDrafts/one'](this.draftId) : null;
       },
 
       teamId() {
@@ -80,15 +80,15 @@
       nftCollectionName() {
         return this.$attributes.getMappedData(
           'nftCollection.name',
-          this.nftCollection?.metadata?.attributes
+          this.nftCollection?.attributes
         )?.value;
       },
 
       title() {
         return this.mode === VIEW_MODE.CREATE
-          ? this.$t('nftCollections.contentDraft.form.titleCreate',
+          ? this.$t('nftCollections.nftItemDraft.form.titleCreate',
                     { name: this.nftCollectionName })
-          : this.$t('nftCollections.contentDraft.form.titleEdit',
+          : this.$t('nftCollections.nftItemDraft.form.titleEdit',
                     { name: this.nftCollectionName });
       }
     },
@@ -120,7 +120,7 @@
 
       async getDraft() {
         try {
-          await this.$store.dispatch('projectContentDrafts/getOne', this.draftId);
+          await this.$store.dispatch('nftItemDrafts/getOne', this.draftId);
         } catch (error) {
           console.error(error);
         }
@@ -141,7 +141,7 @@
           ? 'successCreate'
           : 'successEdit';
 
-        this.$notifier.showSuccess(this.$t(`nftCollections.contentDraft.form.${messageKey}`));
+        this.$notifier.showSuccess(this.$t(`nftCollections.nftItemDraft.form.${messageKey}`));
         this.$router.push({
           name: 'nftCollections.details',
           params: { nftCollectionId: this.nftCollectionId }

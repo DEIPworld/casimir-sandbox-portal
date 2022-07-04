@@ -1,4 +1,4 @@
-import { SYSTEM_ROLE } from '@deip/auth-module';
+import { SYSTEM_ROLE } from '@deip/constants';
 
 import { AccountPassword } from '@/modules/account/components/AccounPassword';
 import { AccountSummary } from '@/modules/account/components/AccountSummary';

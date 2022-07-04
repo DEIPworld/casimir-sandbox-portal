@@ -1,6 +1,6 @@
 import { blocksGenerator } from '@deip/vue-layout-schema';
 
-import { ProjectContent } from '@/modules/nftCollections/components/content/ProjectContent';
+import { NftItems } from '@/modules/nftCollections/components/NftItems';
 
 export const layoutBuilderElements = {
   blocks: [
@@ -9,10 +9,10 @@ export const layoutBuilderElements = {
       blocks: [
         ...blocksGenerator([
           {
-            component: ProjectContent,
+            component: NftItems,
             data: {
               props: {
-                nftCollectionId: '{{projectContent.nftCollectionId}}'
+                nftCollectionId: '{{NftItems.nftCollectionId}}'
               }
             },
             icon: 'mdi-file-document-multiple-outline',
@@ -28,6 +28,6 @@ export const layoutBuilderElements = {
     }
   ],
   components: {
-    ProjectContent
+    NftItems
   }
 };

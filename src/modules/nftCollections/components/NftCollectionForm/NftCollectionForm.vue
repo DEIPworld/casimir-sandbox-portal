@@ -7,7 +7,7 @@
 
       <c-nft-collection-form
         :team-id="teamId"
-        :nft-collection="nftCollectionMetadata"
+        :nft-collection="nftCollection"
         :schema="schema"
         :mode="mode"
         @success="handleSuccess"
@@ -67,12 +67,6 @@
         }
 
         return this.$store.getters['nftCollections/one'](this.nftCollectionId);
-      },
-
-      nftCollectionMetadata() {
-        if (!this.nftCollection) return null;
-
-        return this.nftCollection.metadata;
       },
 
       schema() {

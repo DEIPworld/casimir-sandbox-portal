@@ -1,5 +1,4 @@
-import { SYSTEM_ROLE } from '@deip/auth-module';
-import { VIEW_MODE } from '@deip/constants';
+import { SYSTEM_ROLE, VIEW_MODE } from '@deip/constants';
 
 import { AdminTeams } from '@/modules/admin/components/AdminTeams';
 import { AdminUsers } from '@/modules/admin/components/AdminUsers';

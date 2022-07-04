@@ -11,12 +11,12 @@
           <v-icon left>
             mdi-arrow-left
           </v-icon>
-          {{ $t('nftCollections.contentDraft.details.backToNftCollection') }}
+          {{ $t('nftCollections.nftItemDraft.details.backToNftCollection') }}
         </v-btn>
       </v-sheet>
 
-      <c-project-content-draft-details
-        :content-id="draftId"
+      <c-nft-item-draft-details
+        :nft-item-draft-id="draftId"
         with-actions
         :can-manage="$$isTeamAdmin"
         @publish-success="handlePublishSuccess"
@@ -28,20 +28,20 @@
 </template>
 
 <script>
-  import { ProjectContentDraftDetails as CProjectContentDraftDetails }
-    from '@deip/project-content-module';
+  import { NftItemDraftDetails as CNftItemDraftDetails }
+    from '@casimir/nft-items-module';
   import { VexSection } from '@deip/vuetify-extended';
   import { VeStack } from '@deip/vue-elements';
 
   import { rolesFactory } from '@/mixins';
 
   export default {
-    name: 'ProjectContentDraftDetails',
+    name: 'NftItemDraftDetails',
 
     components: {
       VexSection,
       VeStack,
-      CProjectContentDraftDetails
+      CNftItemDraftDetails
     },
 
     mixins: [rolesFactory('nftCollection.issuer')],
@@ -96,19 +96,19 @@
       },
 
       handlePublishSuccess() {
-        this.$notifier.showSuccess(this.$t('nftCollections.contentDraft.details.successPublish'));
-        this.$store.dispatch('projectContent/getListByNftCollectionId', this.nftCollectionId);
+        this.$notifier.showSuccess(this.$t('nftCollections.nftItemDraft.details.successPublish'));
+        this.$store.dispatch('nftItems/getListByNftCollectionId', this.nftCollectionId);
         this.returnToNftCollection();
       },
 
       handleRemoveSuccess() {
-        this.$notifier.showSuccess(this.$t('nftCollections.contentDraft.details.successRemove'));
+        this.$notifier.showSuccess(this.$t('nftCollections.nftItemDraft.details.successRemove'));
         this.returnToNftCollection();
       },
 
       handleEditClick() {
         this.$router.push({
-          name: 'nftCollections.content.draft.edit',
+          name: 'nftCollections.nftItem.draft.edit',
           params: { nftCollectionId: this.nftCollectionId, draftId: this.draftId }
         });
       }

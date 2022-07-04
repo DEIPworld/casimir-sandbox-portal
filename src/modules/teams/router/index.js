@@ -1,7 +1,6 @@
-import { SYSTEM_ROLE } from '@deip/auth-module';
+import { SYSTEM_ROLE, VIEW_MODE } from '@deip/constants';
 import { routeNameGenerator, routerView } from '@deip/platform-util';
 
-import { VIEW_MODE } from '@deip/constants';
 import { TeamList } from '@/modules/teams/components/TeamList';
 import { TeamDetails } from '@/modules/teams/components/TeamDetails';
 import { TeamForm } from '@/modules/teams/components/TeamForm';
