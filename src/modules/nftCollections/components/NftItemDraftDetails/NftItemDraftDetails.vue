@@ -16,7 +16,9 @@
       </v-sheet>
 
       <c-nft-item-draft-details
-        :nft-item-draft-id="draftId"
+        :draft-id="draftId"
+        :draft="draft"
+        :schema="schema"
         with-actions
         :can-manage="$$isTeamAdmin"
         @publish-success="handlePublishSuccess"
@@ -70,15 +72,33 @@
           name: 'nftCollections.details',
           params: { nftCollectionId: this.nftCollectionId }
         };
+      },
+      draft() {
+        return this.$store.getters['nftItemDrafts/one'](this.draftId);
+      },
+      schema() {
+        return this.$layouts.getMappedData('nftItem.details')?.value;
       }
-
     },
 
     created() {
       this.getNftCollection();
+      this.getDraft();
     },
 
     methods: {
+      /**
+       * Get draft by id
+       */
+      async getDraft() {
+        this.loading = true;
+        try {
+          await this.$store.dispatch('nftItemDrafts/getOne', this.draftId);
+        } catch (error) {
+          console.error(error);
+        }
+        this.loading = false;
+      },
       async getNftCollection() {
         try {
           await this.$store.dispatch('nftCollections/getOne', this.nftCollectionId);

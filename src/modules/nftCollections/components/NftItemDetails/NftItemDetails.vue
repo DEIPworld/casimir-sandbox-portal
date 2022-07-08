@@ -16,8 +16,8 @@
       </v-sheet>
 
       <c-nft-item-details
-        :nft-item-id="nftItemId"
-        :nft-collection-id="nftCollectionId"
+        :nft-item="nftItem"
+        :schema="schema"
       />
     </ve-stack>
   </vex-section>
@@ -54,6 +54,34 @@
           name: 'nftCollections.details',
           params: { nftCollectionId: this.nftCollectionId }
         };
+      },
+      schema() {
+        return this.$layouts.getMappedData('nftItem.details')?.value;
+      },
+      nftItem() {
+        return this.$store.getters['nftItems/one'](
+          { nftItemId: this.nftItemId, nftCollectionId: this.nftCollectionId }
+        );
+      }
+    },
+
+    created() {
+      this.getNftItem();
+    },
+
+    methods: {
+      async getNftItem() {
+        try {
+          await this.$store.dispatch(
+            'nftItems/getOne',
+            {
+              nftItemId: this.nftItemId,
+              nftCollectionId: this.nftCollectionId
+            }
+          );
+        } catch (error) {
+          console.error(error);
+        }
       }
     }
 
