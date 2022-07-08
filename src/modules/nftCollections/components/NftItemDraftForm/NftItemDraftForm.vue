@@ -8,6 +8,7 @@
       <c-nft-item-draft-form
         :nft-collection="nftCollection"
         :draft="draft"
+        :schema="schema"
         :mode="mode"
         @cancel="handleCancel"
         @success="handleSuccess"
@@ -70,7 +71,11 @@
       },
 
       draft() {
-        return this.draftId ? this.$store.getters['nftItemDrafts/one'](this.draftId) : null;
+        return this.draftId ? this.$store.getters['nftItemDrafts/one'](this.draftId) : {};
+      },
+
+      schema() {
+        return this.$layouts.getMappedData('nftItem.form')?.value;
       },
 
       teamId() {
