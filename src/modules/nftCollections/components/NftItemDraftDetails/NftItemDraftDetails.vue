@@ -16,7 +16,6 @@
       </v-sheet>
 
       <c-nft-item-draft-details
-        :draft-id="draftId"
         :draft="draft"
         :schema="schema"
         with-actions
